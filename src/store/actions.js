@@ -1,4 +1,4 @@
-const ActionType = {
+export const ActionType = {
   ChangeGenre: 'main/changeGenre',
   FillQuestList: 'main/fillQuestList',
 };
