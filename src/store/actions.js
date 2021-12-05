@@ -10,5 +10,9 @@ export const changeGenre = (genre) => ({
 
 export const fillQuestList = (questList) => ({
   type: ActionType.FillQuestList,
-  payload: questList,
+  payload: {
+    questList,
+  },
 });
+
+
