@@ -1,11 +1,12 @@
 export const ActionType = {
-  ChangeGenre: 'main/changeGenre',
+  ChangeQuestType: 'main/changeQuestType',
   FillQuestList: 'main/fillQuestList',
+  FillDetailedQuest: 'detail/fillDetailedQuest',
 };
 
-export const changeGenre = (genre) => ({
-  type: ActionType.ChangeGenre,
-  payload: genre,
+export const changeQuestType = (questType) => ({
+  type: ActionType.ChangeQuestType,
+  payload: questType,
 });
 
 export const fillQuestList = (questList) => ({
@@ -15,4 +16,7 @@ export const fillQuestList = (questList) => ({
   },
 });
 
-
+export const fillDetailedQuest = (quest) => ({
+  type: ActionType.FillDetailedQuest,
+  payload: quest,
+});

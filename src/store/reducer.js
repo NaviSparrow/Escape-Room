@@ -1,25 +1,20 @@
 import {ActionType} from './actions';
-
-const GenreType = {
-  All: 'Все квесты',
-  Adventures: 'Приключения',
-  Horrors: 'Ужасы',
-  Mystic: 'Мистика',
-  Detective: 'Детектив',
-  SciFi: 'Sci-fi',
-};
+import { QuestType } from '../services/const';
 
 const initialState = {
-  genre: GenreType.All,
+  questType: QuestType.All,
   questList: [],
-}
+  detailedQuest: null,
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.ChangeGenre:
-      return {...state, genre: action.payload};
+    case ActionType.ChangeQuestType:
+      return {...state, questType: action.payload};
     case ActionType.FillQuestList:
       return {...state, questList: action.payload};
+    case ActionType.FillDetailedQuest:
+      return {...state, detailedQuest: action.payload};
     default: return state;
   }
 }
