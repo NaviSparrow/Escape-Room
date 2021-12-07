@@ -4,29 +4,53 @@ import {
   Route,
   BrowserRouter as Router,
 } from 'components/common/common';
-import DetailedQuest from 'components/detailed-quest/detailed-quest';
 import Contacts from 'components/contacts/contacts';
 import Home from 'components/home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
+import { useSelector } from 'react-redux';
+import { selectQuestList } from '../../store/store';
+import NotFoundPage from '../not-found-page/not-found-page';
+import CheckPageForDetailedQuest from '../detailed-quest/check-page-for-detailed-quest/check-page-for-detailed-quest';
 
-const App = () => (
-  <ThemeProvider theme={appTheme}>
-    <S.GlobalStyle />
-    <Router>
-      <Switch>
-        <Route exact path="/quest">
-          <DetailedQuest />
-        </Route>
-        <Route exact path="/contacts">
-          <Contacts />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
-  </ThemeProvider>
-);
+const AppRoute = {
+  Root: '/',
+  Contacts: '/contacts',
+};
+
+const App = () => {
+  const questList = useSelector(selectQuestList);
+  return (
+    <ThemeProvider theme={appTheme}>
+      <S.GlobalStyle />
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/quests/:id"
+            render={(props) => {
+              const propsId = props.match.params.id;
+              const detailedQuest = questList.find(quest => quest.id === parseInt(propsId, 10));
+              console.log(detailedQuest);
+              if (detailedQuest === undefined) {
+                return <NotFoundPage />;
+              }
+              return <CheckPageForDetailedQuest detailedQuest={detailedQuest} id={propsId} />;
+                 }}>
+          </Route>
+          <Route exact path={AppRoute.Contacts}>
+            <Contacts />
+          </Route>
+          <Route path={AppRoute.Root}>
+            <Home />
+          </Route>
+          <Route>
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
+  );
+}
 
 export default App;

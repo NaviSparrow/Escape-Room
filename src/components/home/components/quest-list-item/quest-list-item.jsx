@@ -1,9 +1,7 @@
 import * as S from '../quests-catalog/quests-catalog.styled';
 import { ReactComponent as IconPerson } from '../../../../assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from '../../../../assets/img/icon-puzzle.svg';
-
-const FROM = 0;
-const TO = 1;
+import { FROM, LevelTypes, TO } from '../../../../services/const';
 
 const QuestListItem = ({ quest }) => {
   const { id, title, previewImg, level, peopleCount } = quest;
@@ -28,7 +26,7 @@ const QuestListItem = ({ quest }) => {
               </S.QuestFeatureItem>
               <S.QuestFeatureItem>
                 <IconPuzzle />
-                {level}
+                {LevelTypes.get(level)}
               </S.QuestFeatureItem>
             </S.QuestFeatures>
           </S.QuestContent>

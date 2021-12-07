@@ -12,7 +12,7 @@ export const QuestType = {
   SciFi: 'Sci-fi',
 };
 
-export const QuestTypeMap = new Map([
+export const QuestTypesMap = new Map([
   ['adventures', QuestType.Adventures],
   ['horror', QuestType.Horrors],
   ['mystic', QuestType.Mystic],
@@ -20,11 +20,20 @@ export const QuestTypeMap = new Map([
   ['sci-fi', QuestType.SciFi],
 ]);
 
+export const LevelTypes = new Map([
+  ['hard', 'сложный'],
+  ['medium', 'средний'],
+  ['easy', 'легкий'],
+]);
+
+export const FROM = 0;
+export const TO = 1;
+
 export const filterQuestsByType = (questList, currentType) => {
   if (currentType === QuestType.All) {
     return questList;
   }
   return questList.filter(
-    (quest) => QuestTypeMap.get(quest.type) === currentType,
+    (quest) => QuestTypesMap.get(quest.type) === currentType,
   );
 };
