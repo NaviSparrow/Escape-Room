@@ -11,9 +11,7 @@ export const changeQuestType = (questType) => ({
 
 export const fillQuestList = (questList) => ({
   type: ActionType.FillQuestList,
-  payload: {
-    questList,
-  },
+  payload: questList,
 });
 
 export const fillDetailedQuest = (quest) => ({
