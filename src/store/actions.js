@@ -2,6 +2,7 @@ export const ActionType = {
   ChangeQuestType: 'main/changeQuestType',
   FillQuestList: 'main/fillQuestList',
   FillDetailedQuest: 'detail/fillDetailedQuest',
+  ChangeIsOrderPass: 'order/changeIsOrderPass',
 };
 
 export const changeQuestType = (questType) => ({

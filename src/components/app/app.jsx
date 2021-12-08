@@ -41,7 +41,7 @@ const App = () => {
           <Route exact path={AppRoute.Contacts}>
             <Contacts />
           </Route>
-          <Route path={AppRoute.Root}>
+          <Route exact path={AppRoute.Root}>
             <Home />
           </Route>
           <Route>

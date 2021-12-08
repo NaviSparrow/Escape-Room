@@ -13,3 +13,21 @@ export const fetchDetailedQuestAction = (id) => async (dispatch) => {
   const data = await response.json();
   dispatch(fillDetailedQuest(data));
 };
+
+export const postNewOrderAction = (orderData, onSuccess, onFail) => async (dispatch) => {
+    try {
+      const response = await fetch(`${BACKEND_URL}/orders`, {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
