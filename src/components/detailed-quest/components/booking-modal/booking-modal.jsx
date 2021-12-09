@@ -4,9 +4,8 @@ import { createRef, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { postNewOrderAction } from '../../../../store/api-actions';
 import { toast } from 'react-toastify';
-
-const ORDER_SUCCESS_POST = 'Вы успешно отправлили заявку!';
-const ORDER_ERROR = 'Ошибка отправки соообщения!';
+import React from 'react';
+import { ORDER_ERROR, ORDER_SUCCESS_POST } from '../../../../services/const';
 
 const BookingModal = ({ onCloseBtnClick }) => {
   const dispatch = useDispatch();
@@ -131,4 +130,4 @@ const BookingModal = ({ onCloseBtnClick }) => {
     </S.BlockLayer>
   );
 };
-export default BookingModal;
+export default React.memo(BookingModal);

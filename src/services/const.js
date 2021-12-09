@@ -1,6 +1,17 @@
+export const FROM = 0;
+export const TO = 1;
+export const RADIX_VALUE = 10;
+export const ORDER_SUCCESS_POST = 'Вы успешно отправлили заявку!';
+export const ORDER_ERROR = 'При отправке заявки возникла ошибка!';
+
 export const APIRoute = {
   QuestList: 'quests',
   NewOrder: 'orders',
+};
+
+export const AppRoute = {
+  Root: '/',
+  Contacts: '/contacts',
 };
 
 export const QuestType = {
@@ -23,11 +34,16 @@ export const QuestTypesMap = new Map([
 export const LevelTypes = new Map([
   ['hard', 'сложный'],
   ['medium', 'средний'],
-  ['easy', 'легкий'],
+  ['easy', 'простой'],
 ]);
 
-export const FROM = 0;
-export const TO = 1;
+export const Menu = {
+  Quests: 'Квесты',
+  Newbies: 'Новичкам',
+  Reviews: 'Отзывы',
+  Stocks: 'Акции',
+  Contact: 'Контакты',
+};
 
 export const filterQuestsByType = (questList, currentType) => {
   if (currentType === QuestType.All) {

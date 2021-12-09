@@ -12,11 +12,7 @@ import { useSelector } from 'react-redux';
 import { selectQuestList } from '../../store/store';
 import NotFoundPage from '../not-found-page/not-found-page';
 import CheckPageForDetailedQuest from '../detailed-quest/check-page-for-detailed-quest/check-page-for-detailed-quest';
-
-const AppRoute = {
-  Root: '/',
-  Contacts: '/contacts',
-};
+import { AppRoute, RADIX_VALUE } from '../../services/const';
 
 const App = () => {
   const questList = useSelector(selectQuestList);
@@ -30,8 +26,7 @@ const App = () => {
             path="/quests/:id"
             render={(props) => {
               const propsId = props.match.params.id;
-              const detailedQuest = questList.find(quest => quest.id === parseInt(propsId, 10));
-              console.log(detailedQuest);
+              const detailedQuest = questList.find(quest => quest.id === parseInt(propsId, RADIX_VALUE));
               if (detailedQuest === undefined) {
                 return <NotFoundPage />;
               }

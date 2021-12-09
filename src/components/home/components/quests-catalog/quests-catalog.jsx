@@ -7,12 +7,11 @@ import { filterQuestsByType } from '../../../../services/const';
 const QuestsCatalog = () => {
   const questList = useSelector(selectQuestList);
   const currentQuestType = useSelector(selectQuestType);
-  const list = filterQuestsByType(questList, currentQuestType);
-  console.log(list);
+  const filteredList = filterQuestsByType(questList, currentQuestType);
   return (
     <>
       <QuestsMenu />
-      <QuestsList questList={filterQuestsByType(questList, currentQuestType)} />
+      <QuestsList questList={filteredList} />
     </>
   );
 };

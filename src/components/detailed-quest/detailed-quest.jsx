@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React from 'react';
 import { MainLayout } from 'components/common/common';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
@@ -64,4 +65,4 @@ const DetailedQuest = () => {
   );
 };
 
-export default DetailedQuest;
+export default React.memo(DetailedQuest);
