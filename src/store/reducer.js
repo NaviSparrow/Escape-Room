@@ -1,8 +1,9 @@
 import {ActionType} from './actions';
-import { QuestType } from '../services/const';
+import { Menu, QuestType } from '../services/const';
 
 const initialState = {
   questType: QuestType.All,
+  menuScreen: Menu.Quests,
   questList: [],
   detailedQuest: null,
 };
@@ -11,6 +12,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.ChangeQuestType:
       return {...state, questType: action.payload};
+    case ActionType.ChangeMenuScreen:
+      return {...state, menuScreen: action.payload};
     case ActionType.FillQuestList:
       return {...state, questList: action.payload};
     case ActionType.FillDetailedQuest:
